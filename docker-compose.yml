@@ -1,0 +1,17 @@
+version: '3'
+services:
+  backend:
+    build: ./app/back
+    image: weliking/lab-docker-back:v2
+    ports:
+      - "8081:5000"
+    environment:
+      - CURRENT_ENVIRONMENT=dev
+
+  frontend:
+    build: ./app/front
+    image: weliking/lab-docker-front:v1
+    ports:
+      - "8080:80"
+    environment:
+      - WS_BACK_URL=http://localhost:8081
