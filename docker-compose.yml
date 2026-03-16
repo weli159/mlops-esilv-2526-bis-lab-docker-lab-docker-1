@@ -9,8 +9,8 @@ services:
     environment:
       - CURRENT_ENVIRONMENT=dev
     # 2.6 Persistence: Map local 'logs' folder to container '/app' folder
-    volumes:
-      - ./logs:/app
+    #volumes:
+      #- ./logs:/app
 
   frontend:
     build: ./app/front
