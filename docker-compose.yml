@@ -3,14 +3,19 @@ services:
   backend:
     build: ./app/back
     image: weliking/lab-docker-back:v2
+    container_name: my-back-service
     ports:
       - "8081:5000"
     environment:
       - CURRENT_ENVIRONMENT=dev
+    # 2.6 Persistence: Map local 'logs' folder to container '/app' folder
+    volumes:
+      - ./logs:/app
 
   frontend:
     build: ./app/front
     image: weliking/lab-docker-front:v1
+    container_name: my-front-service
     ports:
       - "8080:80"
     environment:
